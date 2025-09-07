@@ -43,8 +43,10 @@ int main(){
 		recvbuffer[bytes] = '\0';
 		printf("%s\n",recvbuffer);
 		sendto(udpsockfd, recvbuffer, strlen(recvbuffer), 0, (struct sockaddr *) &serverinfo, sizeof(serverinfo));
-		close(udpsockfd);
+		close(guiclientfd); 
 	}
 
+	close(tcpsockfd);
+	close(udpsockfd); 
 	return 0;
 }
